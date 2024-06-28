@@ -1,0 +1,19 @@
+<div class="container pt-4">
+  <h1 class="text-center mb-4">New Meditation Program</h1>
+  <form [formGroup]="programform" (ngSubmit)="addProgram()">      
+      <mat-form-field class="example-full-width form-group col-6 mb-4">
+          <input matInput placeholder="Program Title" formControlName="programName">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-select placeholder="Category" formControlName="meditationId" id="meditationId">
+          <mat-option *ngFor="let meditation of meditations" [value]="meditation.id">
+            {{ meditation.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+          <input fileUpload type="file" class="file-input" id="fileUploader" (change)="onFileSelected($event)" accept=".jpeg,.jpg,.png">
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="programform.invalid">Add meditation</button>
+  </form>
+</div>

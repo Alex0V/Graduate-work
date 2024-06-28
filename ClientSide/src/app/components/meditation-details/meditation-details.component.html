@@ -1,0 +1,22 @@
+<div class="container text-center pt-4 timer-body">
+    <mat-card class="meditation-card mtb">
+        <div class="card-content">
+          <img mat-card-image src="{{meditation.s3UrlFoto}}" alt="Meditation">
+          <div class="card-details">
+            <h2 mat-card-title>{{meditation.name}}</h2>
+            <p mat-card-subtitle>Duration: 30 minutes</p>
+            <p mat-card-description>
+                <span>Description:</span> {{meditation.description}}
+            </p>
+          </div>
+        </div>
+        <mat-card-actions>
+          <div class="row justify-content-end">
+            <div class="col-auto">
+                <button class="btn btn-danger d-block" *ngIf="role === 'Admin'" (click)="deleteMeditation()">Delete Meditation</button>
+            </div>
+          </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
+

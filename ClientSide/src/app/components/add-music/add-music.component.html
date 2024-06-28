@@ -1,0 +1,12 @@
+<div class="container pt-4">
+  <h1 class="text-center mb-4">New Music</h1>
+  <form [formGroup]="musicform" (ngSubmit)="addMusic()">      
+      <mat-form-field class="example-full-width form-group col-6 mb-4">
+          <input matInput placeholder="Music Title" formControlName="musicName">
+      </mat-form-field>
+      <div>
+          <input fileUpload type="file" class="file-input" id="fileUploader" (change)="onFileSelected($event)" accept=".mp3">
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="musicform.invalid">Add music</button>
+  </form>
+</div>

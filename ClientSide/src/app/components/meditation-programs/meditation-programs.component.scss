@@ -1,0 +1,30 @@
+.header-text{
+    font-size: 30px;
+}
+
+.text-style{
+    color: #2F4F4F;
+}
+.card-wrapper{
+    margin: 0px 0px 30px 0px;
+}
+.mtb{
+    background: transparent;
+}
+
+.card-title{
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: default;
+    font-size: 18px;
+}
+
+.centered-title {
+    display: flex;
+    justify-content: center; /* Центрування по горизонталі */
+    align-items: center; /* Центрування по вертикалі */
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,161 @@
+$color-magenta: #E6E6FA;
+$color-black-light:#2F4F4F;
+
+.background-container {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.content{
+    background: rgba(255, 255, 255, 0.3); /* Напівпрозорий білий фон для контенту */
+    backdrop-filter: blur(10px); /* Ефект розмиття */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+}
+.example-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  max-width: 250px;
+  margin-right: 16px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+}
+
+mat-slider {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+mat-card-actions{
+  width: 800px;
+}
+.card-action-center{
+  justify-content: center;
+}
+
+.time-elapsed, .time-total {
+  width: 2.5rem;
+}
+.time-total {
+  text-align: right;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+
+  fa-icon {
+    color: $color-black-light;
+    font-size: 24px;
+    cursor: pointer;
+
+    &.rated,
+    &:hover,
+    &:hover ~ fa-icon {
+      color: orange;
+    }
+    transition: color 0.3s ease-in-out;
+  }
+
+  &.readOnly {
+    fa-icon {
+      cursor: default;
+      &:hover:not(.rated),
+      &:hover ~ fa-icon:not(.rated) {
+        color: $color-black-light;
+      }
+    }
+  }
+}
+
+.content-btn-action {
+  display: flex;
+  justify-content: center;
+  button {
+    font-size: 40px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: none;
+    outline: inherit;
+    color: $color-black-light;
+    background: transparent;
+  }
+}
+
+.contentlist{
+  padding-top: 50px;
+  background: transparent;
+  margin-bottom: 15px;
+}
+
+.custom-list-item {
+  margin-left:10px;
+  margin-right:10px;
+  margin-bottom: 10px;
+  border: 1px solid #2F4F4F;
+  color: #E6E6FA;
+  border-radius: 15px;
+  padding: 10px;
+  width: auto;
+  // Щоб останній елемент не мав нижнього відступу
+  &:last-child {
+    margin-bottom: 0px;
+  }
+  &:hover{
+    background-color: #2F4F4F;
+    div{
+      color: #E6E6FA;
+    }
+  }
+  div{
+    color: #2F4F4F;
+  }
+}
+
+.mtb{
+  background: transparent;
+}
+
+.recomends{
+  background: rgba(255, 255, 255, 0.3); /* Напівпрозорий білий фон для контенту */
+  backdrop-filter: blur(10px); /* Ефект розмиття */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}

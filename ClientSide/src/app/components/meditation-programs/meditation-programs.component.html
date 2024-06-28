@@ -1,0 +1,21 @@
+<div class="container text-center pt-4">
+    <span class="text-style header-text">Meditation Programs</span>
+    <div class="row justify-content-end">
+        <div class="col-auto">
+            <button class="btn btn-primary" *ngIf="role === 'Admin'" (click)="goToAdd()">Add Meditation Program</button>
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <div class="row row-cols-4">
+            <div class="col card-wrapper" *ngFor="let program of meditationPrograms" (click)="showSessions(program.id)">
+                <mat-card class="mat-elevation-z4 mtb">
+                    <img mat-card-image src= "{{program.s3UrlFoto}}">
+                    <mat-card-header class="centered-title">
+                        <mat-card-title><span class="card-title text-style">{{program.programName | truncateText}}</span></mat-card-title>
+                    </mat-card-header>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

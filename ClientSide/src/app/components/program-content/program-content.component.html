@@ -1,0 +1,92 @@
+<div *ngIf="program" [ngStyle]="{'background-image': 'url(' + program.s3UrlFoto + ')'}" class="background-container">
+    <div class="content">
+      <mat-card class="example-card">
+        <img  class="img" src="{{program.s3UrlFoto}}" alt="Foto">
+        <mat-card-header>
+          <mat-card-title>{{ program.programName }}</mat-card-title>
+          <mat-card-subtitle>Meditation: MediationName</mat-card-subtitle>
+          <mat-card-actions>
+            <div id="container">
+              <fa-icon
+                [class.rated]="rating >= 5"
+                [icon]="faStar"
+                (click)="setRating(5)"
+              ></fa-icon>
+              <fa-icon
+                [class.rated]="rating >= 4"
+                [icon]="faStar"
+                (click)="setRating(4)"
+              ></fa-icon>
+            
+              <fa-icon
+                [class.rated]="rating >= 3"
+                [icon]="faStar"
+                (click)="setRating(3)"
+              ></fa-icon>
+            
+              <fa-icon
+                [class.rated]="rating >= 2"
+                [icon]="faStar"
+                (click)="setRating(2)"
+              ></fa-icon>
+            
+              <fa-icon
+                [class.rated]="rating >= 1"
+                [icon]="faStar"
+                (click)="setRating(1)"
+              ></fa-icon>
+            </div>
+          </mat-card-actions>
+          <mat-card-actions class="card-action-center">
+            <div class="progress">
+              <span class="time-elapsed">{{ currentTime | sgTime }}</span>
+              <mat-slider
+                color="primary"
+                [step]="1"
+                [disabled]="!duration"
+                [max]="duration"
+                (change)="onTimeChange($event)">
+                <input class="slider-input" matSliderThumb [value]="currentTime" /></mat-slider>
+              <span class="time-total">{{ duration | sgTime }}</span>
+            </div>
+          </mat-card-actions>
+          <mat-card-actions class="card-action-center">
+            <div class="content-btn-action">
+              <button mat-button type="button" (click)="stop()">&#9724;</button>
+              <button mat-button type="button" (click)="start()">&#9658;</button>
+            </div>
+
+          </mat-card-actions>
+        </mat-card-header>
+      </mat-card>
+      <mat-list class="contentlist">
+        <mat-list-item *ngIf="program.programContents.length === 0" >
+          <div class="center-content">
+            <br>
+            No content available
+          </div>
+        </mat-list-item>
+        <mat-list-item class="custom-list-item" *ngFor="let content of program.programContents" (click)="onAudioSelect(content)">
+          <div class="content-wrapper">
+            <span class="content-name">{{ content.contentName }}</span>
+            <span class="content-duration">{{ content.duration }}</span>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="recomends">
+    <div class="text-center">
+      <div class="row row-cols-4">
+          <div class="col card-wrapper" *ngFor="let program of recomendedPrograms" (click)="showSessions(program.id)">
+              <mat-card class="mat-elevation-z4 mtb">
+                  <img mat-card-image src= "{{program.s3UrlFoto}}">
+                  <mat-card-header class="centered-title">
+                      <mat-card-title><span class="card-title text-style">{{program.programName | truncateText}}</span></mat-card-title>
+                  </mat-card-header>
+              </mat-card>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
